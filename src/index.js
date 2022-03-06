@@ -33,7 +33,12 @@ function Board(props) {
 
     return (
         <div>
-            <div className="board-row">
+            {
+                Array(3).fill().map((_, i, arr) => <div key={i} className="board-row">
+                    {arr.map((_, k) => renderSquare((arr.length * i) + k))}
+                </div>)
+            }
+            {/* <div className="board-row">
                 {renderSquare(0)}
                 {renderSquare(1)}
                 {renderSquare(2)}
@@ -47,7 +52,7 @@ function Board(props) {
                 {renderSquare(6)}
                 {renderSquare(7)}
                 {renderSquare(8)}
-            </div>
+            </div> */}
         </div>
     );
 }
